@@ -30,15 +30,15 @@ import frc.robot.RobotContainer;
 
 public class TalonSub extends SubsystemBase {
   private Rotation2d angleOffset;
-  public static TalonFX mAngleMotor;
+  public TalonFX mAngleMotor;
   public DutyCycleEncoder angleEncoder;
 
   /* angle motor control requests */
-  private final static PositionVoltage anglePosition = new PositionVoltage(0);
+  private final  PositionVoltage anglePosition = new PositionVoltage(0);
       
   public TalonSub(){
     this.angleOffset = Constants.angleOffset;
-    TalonSub.mAngleMotor = new TalonFX(Constants.angleMotor);
+    this.mAngleMotor = new TalonFX(Constants.angleMotor);
     
     /* Angle Encoder Config */
     angleEncoder = new DutyCycleEncoder(Constants.canCoderID);
@@ -74,28 +74,28 @@ public class TalonSub extends SubsystemBase {
       
   /* level degrees */
   // TODO this must be tuned to specific angle
-  public static void level1(double degrees) {
-    //mAngleMotor.set(50);
+  public void level1(double degrees) {
+    mAngleMotor.set(50);
     //-56.13
-    Rotation2d rot = new Rotation2d(Math.toRadians(-56.13*4096));
+    Rotation2d rot = new Rotation2d(Math.toRadians(-56.13));
     
-    mAngleMotor.setControl(anglePosition.withPosition(rot.getRotations()));
+    //mAngleMotor.setControl(anglePosition.withPosition(rot.getRotations()));
     //mAngleMotor.setControl(ControlMode.Position(0.15*4096));
-    System.out.println(anglePosition.toString());
+    //System.out.println(anglePosition.toString());
 
   }
 
-  public static Rotation2d level2(double degrees) {
+  public  Rotation2d level2(double degrees) {
     return new Rotation2d(Math.toRadians(-61));
   }
-  public static Rotation2d level3(double degrees) {
+  public  Rotation2d level3(double degrees) {
     return new Rotation2d(Math.toRadians(123.529));
   }
-  public static Rotation2d intakeangle(double degrees) {
+  public  Rotation2d intakeangle(double degrees) {
     return new Rotation2d(Math.toRadians(137.837));
   }
   
-  public static void drive(){
+  public  void drive(){
     mAngleMotor.set(50);
   }
 }

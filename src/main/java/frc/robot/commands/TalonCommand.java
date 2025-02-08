@@ -49,14 +49,14 @@ public class TalonCommand extends Command {
     System.out.println("");
 
     if (mechJoystick.getRawButton(1)){// mechB is pressed, FALCON moves to lvl 1
-      TalonSub.level1(-56.13);
-    }   else if (mechJoystick.getRawButton(2)){// mechX is pressed, FALCON moves to lvl 2
-      TalonSub.level2(-56.13);
+      levelconfig.level1(-56.13);
+    }   //else if (mechJoystick.getRawButton(2)){// mechX is pressed, FALCON moves to lvl 2
+    /*  TalonSub.level2(-56.13);
     } else if (mechJoystick.getRawButton(3)){// mechX is pressed, FALCON moves to lvl 3
       TalonSub.level3(-56.13);
     } else if (mechJoystick.getRawButton(4)){// mechX is pressed, FALCON moves to floor
       TalonSub.intakeangle(137.837);
-    }
+    }*/
   }
   
   // Called once the command ends or is interrupted.
